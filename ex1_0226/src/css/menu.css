@@ -1,0 +1,37 @@
+#header {
+  height: 44px;
+  margin: 0;
+  background-color: #2e2e2e;
+}
+ul#nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: 14pxSans-serif;
+  text-align: center;
+  line-height: 44px;
+}
+ul#nav > li {
+  display: inline;
+  margin-right: 40px;
+}
+ul#nav > li {
+  color: #eee;
+  text-decoration: none;
+}
+ul#nav > li:hover {
+  color: #e2e2e2;
+}
+#apple {
+  background-image: url(../images/apple.png);
+  width: 48px;
+  position: absolute;
+  top: 2px;
+  background-size: 16px44px;
+  background-repeat: no-repeat;
+  background-position: centercenter;
+
+  margin-left: -50px;
+  text-align: center;
+  z-index: 1; /* 보는시각의인덱스값숫자가높으면높을수록앞에있다. */
+}
