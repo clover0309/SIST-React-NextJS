@@ -1,0 +1,19 @@
+
+{
+    "subject":[
+        {"id":1, "title":"frontend"},
+        {"id":2, "title":"backend"},
+        {"id":3, "title":"modeling"}
+    ],
+    "lang":[
+        {"id":1, "subject":1, "title":"JavaScript", "level":1},
+        {"id":2, "subject":3, "title":"UML", "level":3},
+        {"id":3, "subject":1, "title":"TypeScript", "level":1},
+        {"id":4, "subject":2, "title":"Java", "level":5},
+        {"id":5, "subject":2, "title":"Spring", "level":6},
+        {"id":6, "subject":1, "title":"React", "level":1},
+        {"id":7, "subject":2, "title":"JSP/Servlet", "level":3},
+        {"id":8, "subject":2, "title":"Python", "level":2},
+        {"id":9, "subject":1, "title":"Vue", "level":2}
+    ]
+}
