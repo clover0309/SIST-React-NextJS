@@ -15,17 +15,7 @@ function App() {
         <Grid2 size={2}>
           </Grid2>
         <Grid2 size={10}>
-          <Box
-          sx={{
-            display:'flex',
-            justifyContent:'center',
-            height:'1200px',
-            weight:'1200px',
-            backgroundColor: 'lightblue'
-          }}
-          >
             <Content/>
-          </Box>
         </Grid2>
       </Grid2>
         </Container>
