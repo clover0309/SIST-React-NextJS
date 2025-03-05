@@ -57,40 +57,41 @@ public class BbsController {
     @RequestMapping("/list") // http://localhost:8080/notice/list
     @ResponseBody //json으로 던질땐 ResponseBody, json이나 xml으로 받을땐 인자값 부분에 RequestBody
     public Map<String, Object> list(String bname,
-    String searchType,
-    String searchValue, String cPage) {
-Map<String, Object> map = new HashMap<>();
+            String searchType,
+            String searchValue, String cPage) {
+        Map<String, Object> map = new HashMap<>();
 
-int nowPage = 1;
-if (cPage != null)
-    nowPage = Integer.parseInt(cPage);
+        int nowPage = 1;
+        if (cPage != null)
+            nowPage = Integer.parseInt(cPage);
 
-// bname이 무조건 인자로 넘어와야 한다. 그런데 공백이면 안된다.
-if (bname == null || bname.trim().length() == 0)
-    bname = "BBS";
+        // bname이 무조건 인자로 넘어와야 한다. 그런데 공백이면 안된다.
+        if (bname == null || bname.trim().length() == 0)
+            bname = "BBS";
 
-// 전체게시물의 수
-int totalRecord = bService.getTotalCount(searchType, searchValue, bname);
+        // 전체게시물의 수
+        int totalRecord = bService.getTotalCount(searchType, searchValue, bname);
 
-// 페이징 객체 생성
-Paging page = new Paging(7, 5);
-page.setTotalRecord(totalRecord);
-page.setNowPage(nowPage);
+        // 페이징 객체 생성
+        Paging page = new Paging(7, 5);
+        page.setTotalRecord(totalRecord);
+        page.setNowPage(nowPage);
 
-// 뷰페이지에서 표현할 목록을 가져올 때 사용하는 값(begin,end)
-int begin = page.getBegin();
-int end = page.getEnd();
+        // 뷰페이지에서 표현할 목록을 가져올 때 사용하는 값(begin,end)
+        int begin = page.getBegin();
+        int end = page.getEnd();
 
-// 목록 가져오기
-BbsVO[] ar = bService.getList(searchType, searchValue, bname, begin, end);
+        // 목록 가져오기
+        BbsVO[] ar = bService.getList(searchType, searchValue, bname, begin, end);
 
-// 뷰페이지에서 표현할 정보들을 mv에 저장!
-map.put("ar", ar);
-map.put("page", page);
-map.put("totalRecord", totalRecord);
-map.put("bname", bname);
-map.put("nowPage", nowPage);
+        // 뷰페이지에서 표현할 정보들을 mv에 저장!
+        map.put("ar", ar);
+        map.put("page", page);
+        map.put("totalRecord", totalRecord);
+        map.put("bname", bname);
+        map.put("nowPage", nowPage);
 
-return map;
-}
+        return map;
+    }
+
 }

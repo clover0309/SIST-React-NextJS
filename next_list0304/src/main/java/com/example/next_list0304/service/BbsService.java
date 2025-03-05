@@ -39,16 +39,14 @@ public class BbsService {
         return bMapper.add(vo);
     }
 
+    // 게시물을 검색
     public BbsVO getBbs(String b_idx) {
         return bMapper.get_Bbs(b_idx);
     }
 
+    // 조회수 증가
     public int hit(String b_idx) {
         return bMapper.hit(b_idx);
     }
-
-    public int edit(BbsVO vo) {
-        return bMapper.edit(vo);
-    }
-
 }
+

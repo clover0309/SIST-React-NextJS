@@ -15,12 +15,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class BbsVO {
     private String b_idx, subject, writer, content,
-            file_name, ori_name, write_date, ip, hit, pwd,
-            bname, status;
-
-    private String fname, oname;
+            file_name, ori_name, write_date, ip, hit,
+            bname, status, pwd;
 
     private List<CommVO> c_list; // 댓글들...
     private MultipartFile file;// 첨부파일
-
 }
+

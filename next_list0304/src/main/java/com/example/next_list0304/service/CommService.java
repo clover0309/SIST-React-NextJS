@@ -14,7 +14,7 @@ public class CommService {
     @Autowired
     private CommMapper cMapper;
 
-    public List<CommVO> commList(String b_idx){
+    public List<CommVO> commList(String b_idx) {
         return cMapper.commList(b_idx);
     }
 }

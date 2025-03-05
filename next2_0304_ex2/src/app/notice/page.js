@@ -14,14 +14,23 @@ export default function Page() {
     function setData() {
         //axios로 get방식 post방식을 요청이 가능하다.
         //백틱을 사용해야하고, done대신 then을 써야한다.
+        //명시한 경로가 next.config.mjs를 가리킨다.
+
+        //res는 spring에서 주는 json 값이 넘어온다.
         axios.get(`/notice/list`).then((res) => {
             //res안의 data라는 이름으로 json값이 들어온다.
             //setData를 호출한 순간, setAr로 값을 변경해준다.
+            console.log("res : " + res)
+            
+            //res안에 data안에 ar안에 
+            // 스프링부트에서 지정해 준 값이 있다.
+
             setAr(res.data.ar);
         });
     }
 
     //페이지가 열릴 때 한번 setData를 호출.
+    //userEffect(function () {})와 밑은 의미가 같다.
     useEffect(() => {
         setData();
     });
