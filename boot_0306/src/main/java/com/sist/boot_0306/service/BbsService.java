@@ -5,11 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.MergedAnnotations.Search;
 import org.springframework.stereotype.Service;
 
 import com.sist.boot_0306.mapper.BbsMapper;
-import com.sist.boot_0306.mapper.CommMapper;
 import com.sist.boot_0306.vo.BbsVO;
 
 @Service
@@ -50,5 +48,9 @@ public class BbsService {
 
     public BbsVO getBbs(String b_idx) {
         return bbsMapper.get_Bbs(b_idx);
+    }
+
+    public int addBbs(BbsVO vo){
+        return bbsMapper.add(vo);
     }
 }

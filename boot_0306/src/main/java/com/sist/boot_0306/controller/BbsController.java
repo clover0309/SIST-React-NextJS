@@ -4,18 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.sist.boot_0306.service.BbsService;
-import com.sist.boot_0306.service.CommService;
 import com.sist.boot_0306.util.Paging;
 import com.sist.boot_0306.vo.BbsVO;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @RestController
@@ -77,5 +76,15 @@ public class BbsController {
 
         return map;
     }
-    
+
+    @PostMapping("add")
+    @ResponseBody
+        public Map<String,Object> addBbs(@RequestBody BbsVO vo) {
+            int cnt = bbsService.addBbs(vo);
+
+            Map<String,Object> map = new HashMap<>();
+            map.put("cnt", cnt);
+
+            return map;
+    }
 }
