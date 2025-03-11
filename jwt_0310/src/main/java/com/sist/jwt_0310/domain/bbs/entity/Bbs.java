@@ -5,6 +5,7 @@ import com.sist.jwt_0310.global.jpa.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrePersist;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class Bbs extends BaseEntity{
     private Long hit;
     @Column
     private Long state = 0L;
+    @NotBlank
     private String title, content, writer;
 
     //저장하기 전에 먼저 수행하는 곳

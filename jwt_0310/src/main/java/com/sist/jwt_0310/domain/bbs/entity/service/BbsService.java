@@ -37,4 +37,9 @@ public class BbsService {
 
         return bbsRepository.save(bbs);
     }
+
+    //오버로딩을 통해 사용이 가능하다.
+    public Bbs create(Bbs bbs) {
+        return bbsRepository.save(bbs);
+    }
 }

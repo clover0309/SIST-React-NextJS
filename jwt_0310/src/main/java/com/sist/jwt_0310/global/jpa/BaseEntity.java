@@ -47,5 +47,5 @@ public class BaseEntity {
 
     
     @CreatedDate
-    private LocalDateTime write_date;
+    private String write_date;
 }

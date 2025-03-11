@@ -8,6 +8,7 @@ import com.sist.jwt_0310.domain.bbs.entity.service.BbsService;
 import com.sist.jwt_0310.global.jpa.BaseEntity;
 import com.sist.jwt_0310.global.result.ResultData;
 
+import jakarta.validation.Valid;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -72,5 +76,14 @@ public class ApiV1BbsController {
         );
     }
 
+    @PostMapping("")
+    //파라미터 정보가 JSON으로 넘어오면 반드시 파라미터앞에 @RequestBody를 붙여야한다.
+    public void write(@Valid @RequestBody Bbs bbs) {
+        //bbsService.create(bbs);
+        
+        // @PrePersist가 호출되야 하는데 위는 그렇지 않다.
+        // 빌드방식으로 값을 받아 온것이 아니기 때문에 hit값이 0으로 찍히는 현상이 있다.
+        bbsService.create(bbs.getTitle(), bbs.getWriter(), bbs.getContent());
+    }
     
 }
