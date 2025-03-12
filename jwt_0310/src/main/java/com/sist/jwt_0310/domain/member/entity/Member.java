@@ -3,6 +3,7 @@ package com.sist.jwt_0310.domain.member.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sist.jwt_0310.global.jpa.BaseEntity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,5 +26,9 @@ public class Member extends BaseEntity{
     @JsonIgnore
     private String mpwd;
 
+    @Column(name = "access_token", length = 1024)
     private String accessToken;
+
+    @Column(name = "refresh_token", length = 1024)
+    private String refreshToken;
 }
