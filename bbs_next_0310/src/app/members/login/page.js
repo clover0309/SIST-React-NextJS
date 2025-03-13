@@ -3,11 +3,15 @@ import { useState } from "react";
 import styles from "../../page.module.css";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import TokenStore from "@/app/store/TokenStore";
 
 export default function Page() {
   const API_URL = "/api/v1/members/login";
   const [member, setMember] = useState({});
   const router = useRouter();
+
+  //zustand를 통해 TokenStore 만든 것을 사용
+  const {accessToken, setToken} = TokenStore();
 
     function signIn() {
       axios.post(API_URL, JSON.stringify(member), {
@@ -16,6 +20,7 @@ export default function Page() {
         }
       }).then((res) => {
         if(res.status == 200) {
+          setToken(res.data.data.accessToken);
           //성공시 localhost:3000/으로 가게됨.
           router.push("/");
         }
